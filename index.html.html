@@ -1,0 +1,72 @@
+<!--Verificar de Numeros Primos trabalho código
+  Grupo:
+    Nome: Aaron Carletti Fritis Borges       Número: 1
+
+
+
+-->
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primo</title>
+    <script>
+
+        function isPrime(n1) {
+
+             if (n1 < 2) return false;
+              if (n1 === 2) return true;
+
+             for (let c = 3; c <= Math.floor(n1 / 2); c += 2) {if (n1 % c === 0) 
+                
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+         
+          function recebeNumero() {
+
+              var n1 = document.getElementById('numero1').value;
+              var canvas = document.getElementById('primeCanvas');
+              var ctx = canvas.getContext('2d');
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+            if (!isNaN(n1) && n1 > 0) {
+                ctx.fillStyle = 'black';
+                ctx.font = '20px Arial';
+
+                  if (isPrime(n1)) { ctx.fillText(n1 + ' é primo', 10, 30);} 
+                  
+                  else {ctx.fillText(n1 + ' não é primo', 10, 30);}
+
+          
+            }
+        }
+    </script>
+</head>
+<body>
+
+    
+
+        <h1>Verificador de Números Primos</h1>
+
+    <label for="numero1" style="font-size: 20px;">Digite um número:</label>
+
+        <input type="text" id="numero1" autofocus><br>
+        <button onclick="recebeNumero()">Verificar Primo</button>
+        <br>
+        <br>
+        <canvas id="primeCanvas" width="400" height="200" style="border:1px solid #000;"></canvas>
+    
+
+</body>
+</html>
